@@ -1,0 +1,29 @@
+---
+dependencies: []
+galaxy_info:
+  author: Julian Easterling
+  description: Ansible role to control active and configured mount points
+  galaxy_tags:
+    - fstab
+    - dcjulian29
+  license: Apache-2.0
+  min_ansible_version: 2.13.7
+  namespace: dcjulian29
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+        - buster
+    - name: Ubuntu
+      versions:
+        - jammy
+        - focal
+    - name: Fedora
+      versions:
+        - "36"
+        - "35"
+    - name: EL
+      versions:
+        - "9"
+        - "8"
+  role_name: fstab
