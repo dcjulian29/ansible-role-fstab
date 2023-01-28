@@ -13,17 +13,6 @@
   when: fstab_cifs_credentials | length > 0
 
 - name: Ensure mountpoints are examined
+  ansible.builtin.include_tasks: mounts.yml
   when: fstab_mounts | length > 0
-  block:
-    - name: Ensure mountpoint folder exists
-      ansible.builtin.file:
-        path: "{{ item.path }}"
-        state: directory
-        owner: root
-        group: root
-        mode: 0755
-      loop: "{{ fstab_mounts }}"
-
-    - name: Ensure filesystem are mounted
-      ansible.posix.mount: "{{ item }}"
-      loop: "{{ fstab_mounts }}"
+  loop: "{{ fstab_mounts }}"

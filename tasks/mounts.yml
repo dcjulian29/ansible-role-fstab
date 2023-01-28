@@ -1,0 +1,17 @@
+---
+- name: Does mountpoint exists
+  ansible.builtin.stat:
+    path: "{{ item.path }}"
+  register: results
+
+- name: Ensure mountpoint folder exists
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  when: not results.stat.exists
+
+- name: Ensure filesystem are mounted
+  ansible.posix.mount: "{{ item }}"
