@@ -1,8 +1,8 @@
 # Ansible Role: fstab
 
-[![CI](https://github.com/dcjulian29/ansible-role-fstab/actions/workflows/ci.yml/badge.svg)](https://github.com/dcjulian29/ansible-role-fstab/actions/workflows/ci.yml) [![GitHub Issues](https://img.shields.io/github/issues-raw/dcjulian29/ansible-role-fstab.svg)](https://github.com/dcjulian29/ansible-role-fstab/issues)
+[![Lint](https://github.com/dcjulian29/ansible-role-fstab/actions/workflows/lint.yml/badge.svg)](https://github.com/dcjulian29/ansible-role-fstab/actions/workflows/lint.yml) [![GitHub Issues](https://img.shields.io/github/issues-raw/dcjulian29/ansible-role-fstab.svg)](https://github.com/dcjulian29/ansible-role-fstab/issues)
 
-This an Ansible role to control acive and configured mount points
+This an Ansible role to control active and configured mount points
 
 ## Requirements
 
@@ -29,11 +29,3 @@ ansible-galaxy install -r requirements.yml
 ## Dependencies
 
 None
-
-## Role Variables
-
-TODO
-
-## Example Playbook
-
-The examples directory include one or more example playbooks.
