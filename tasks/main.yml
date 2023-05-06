@@ -1,4 +1,12 @@
 ---
+- name: for CIFS mounts, ensure SMB utilities package is installed.
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - cifs-utils
+  when: fstab_cifs_credentials | length > 0
+
 - name: For CIFS mounts, ensure the credentials file exists
   ansible.builtin.copy:
     content: |
