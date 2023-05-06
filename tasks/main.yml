@@ -1,5 +1,5 @@
 ---
-- name: for CIFS mounts, ensure SMB utilities package is installed.
+- name: For CIFS mounts, ensure SMB utilities package is installed.
   ansible.builtin.package:
     name: "{{ item }}"
     state: present
