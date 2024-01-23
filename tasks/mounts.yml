@@ -1,10 +1,10 @@
 ---
-- name: Does mountpoint exists
+- name: Check if mount point exists
   ansible.builtin.stat:
     path: "{{ item.path }}"
   register: results
 
-- name: Ensure mountpoint folder exists
+- name: Ensure mount point folder exists
   ansible.builtin.file:
     path: "{{ item.path }}"
     state: directory
@@ -14,4 +14,12 @@
   when: not results.stat.exists
 
 - name: Ensure filesystem are mounted
-  ansible.posix.mount: "{{ item }}"
+  ansible.posix.mount:
+    backup: "{{ item.backup | default(omit) }}"
+    boot: "{{ item.boot | default(omit) }}"
+    fstab: "{{ item.fstab | default(omit) }}"
+    fstype: "{{ item.fstype | default(omit) }}"
+    opts: "{{ item.opts | default(omit) }}"
+    path: "{{ item.path }}"
+    src: "{{ item.src | default(omit) }}"
+    state: "{{ item.state }}"
